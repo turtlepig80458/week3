@@ -190,9 +190,19 @@ p{
 .nav-wrap{
     display: flex;
     justify-content: space-between;
+
+    @media (max-width:768px) {
+        flex-direction: column;
+        /* 移除左右 padding 再加入 max-width: 100%; 讓導覽列能變為滿版 */
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+        
+    }
 }
 .logo{
     width: 80px;
+    height: 72px;
 }
 .ptb-25{
     padding: 25px 0;
