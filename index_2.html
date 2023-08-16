@@ -17,13 +17,13 @@
 </head>
 <body>
     <nav class="bg_red">
-        <div class="container row_jcsb nav-wrap">
+        <div class="container nav-wrap ptb-16">
             <div class="logo"><a href="#"><img src="https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/logo-white.png?raw=true" alt="LOGO_white"></a></div>
-            <ul class="row_jcsb ptb-25">
-                <li><a href="#" class="navbar text_white pl-64">系列鏡框</a></li>
-                <li><a href="#" class="navbar text_white pl-64">門市據點</a></li>
-                <li><a href="#" class="navbar text_white pl-64">部落格</a></li>
-                <li><a href="#" class="navbar text_white pl-64">常見問題</a> </li>       
+            <ul class="navbar-nav ">
+                <li class="navbar-item"><a href="#" class="navbar text_white">系列鏡框</a></li>
+                <li class="navbar-item"><a href="#" class="navbar text_white">門市據點</a></li>
+                <li class="navbar-item"><a href="#" class="navbar text_white">部落格</a></li>
+                <li class="navbar-item"><a href="#" class="navbar text_white">常見問題</a> </li>       
             </ul>
         </div>
     </nav>
@@ -144,51 +144,53 @@
     </section>
     <!-- section5  -->
     <section class="bg_lightred">
-        <div class="container_6 ptb-80">
-            <h2 class="pb-48">聯絡我們</h2>
-            <h5 class="pb-24">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</h5>
-            <form action="/action_page.html">
-                <label class="block mb-8" for="">姓名</label>
-                <input class="block mb-16 w100" type="text" name="Username" placeholder="陳小明">
-                <label class="block mb-8" for="">聯絡電話</label>
-                <input class="block mb-16 w100" type="text" name="Phone" placeholder="0912-345-678">
-                <label class="block mb-8" for="">電子郵件</label>
-                <input class="block mb-16 w100" type="text" name="Mail" placeholder="example@email.com">
-                <label class="block mb-8" for="">意見反應</label>
-                <input class="block mb-16 w100" type="text" name="opinion" placeholder="請輸入您的意見">
-                <input type="checkbox" name="agree">
-                <label for="agree">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label><br>
-                <!-- 怪 -->
-                <div class="row_center"><a href="#" class="button_2 text_white ma">確認送出</a></div>
-            </form>
+        <div class="container ptb-80">
+            <div class="col-6 col-md-10 col-sm12 ma">
+                <h2 class="pb-48">聯絡我們</h2>
+                <h5 class="pb-24">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</h5>
+                <form action="/action_page.html">
+                    <label class="block mb-8" for="name">姓名</label>
+                    <input class="block mb-16 w100" id="name" type="text" name="Username" placeholder="陳小明">
+                    <label class="block mb-8" for="tel">聯絡電話</label>
+                    <input class="block mb-16 w100" id="tel" type="text" name="Phone" placeholder="0912-345-678">
+                    <label class="block mb-8" for="email">電子郵件</label>
+                    <input class="block mb-16 w100" id="email" type="text" name="Mail" placeholder="example@email.com">
+                    <label class="block mb-8" for="text">意見反應</label>
+                    <input class="block mb-16 w100" id="text" type="text" name="opinion" placeholder="請輸入您的意見">
+                    <input type="checkbox" name="agree">
+                    <label for="agree">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label><br>
+                    <!-- 怪 -->
+                </form>
+            </div>
+            <div class="row_center"><a href="#" class="button_send text_white col-4 col-md-6 col-sm-12 mx-12">確認送出</a></div>
         </div>
     </section>
     <footer class="bg_red">
         <div class="container">
-            <div class="row_jcsb pt-48 pb-24">
+            <div class="row_jcsb wrap pt-48 pb-24">
                 <ul class="row_start nav">
-                    <li><a class="text_white mr-48" href="#">首頁</a></li>
-                    <li><a class="text_white mr-48" href="#">系列鏡框</a></li>
-                    <li><a class="text_white mr-48" href="#">門市據點</a></li>
-                    <li><a class="text_white mr-48" href="#">部落格</a></li>
-                    <li><a class="text_white mr-48" href="#">常見問題</a></li>
+                    <li><a class="text_white pr-48" href="#">首頁</a></li>
+                    <li><a class="text_white pr-48" href="#">系列鏡框</a></li>
+                    <li><a class="text_white pr-48" href="#">門市據點</a></li>
+                    <li><a class="text_white pr-48" href="#">部落格</a></li>
+                    <li><a class="text_white pr-48" href="#">常見問題</a></li>
                 </ul>
                 <ul class="row_end social">
                     <li><a href="#"><img class="icon_social ml-32" src="https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/ic-social-fb.png?raw=true" alt="FB"></a></li>
                     <li><a href="#"><img class="icon_social ml-32" src="https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/ic_social_ig.png?raw=true" alt="IG"></a></li>
                     <li><a href="#"><img class="icon_social ml-32" src="https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/ic_social_line.png?raw=true" alt="LINE"></a></li>
                 </ul>
+                <ul class="list_start">
+                    <li class="item_center vertical_middle pb-8">
+                        <i class="icon_footer mr-16 fa-solid fa-phone" style="color: #ffffff;"></i>                    
+                        <h3 class="text_white">0800-000-000</h3>
+                    </li>
+                    <li class="item_center vertical_middle">
+                        <i class="icon_footer mr-16 fa-solid fa-envelope" style="color: #ffffff;"></i>
+                        <h3 class="text_white">glasses@business.com</h3>
+                    </li>
+                </ul>
             </div>
-            <ul class="list_start">
-                <li class="item_center vertical_middle pb-8">
-                    <i class="icon_footer mr-16 fa-solid fa-phone" style="color: #ffffff;"></i>                    
-                    <h3 class="text_white">0800-000-000</h3>
-                </li>
-                <li class="item_center vertical_middle">
-                    <i class="icon_footer mr-16 fa-solid fa-envelope" style="color: #ffffff;"></i>
-                    <h3 class="text_white">glasses@business.com</h3>
-                </li>
-            </ul>
             <hr class="m-32">
             <div class="row_jcsb pb-32">
                 <p class="copyright text_white ">Copyright © 2020 Glasses.All rights reserved.</p>
