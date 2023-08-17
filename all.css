@@ -1,12 +1,12 @@
 /* 基本設置 */
-
-/* RWD img css 可當作css reset 其中一個 */
-img{
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
+body {
+    font-family: "Roboto", "Noto Sans TC", sans-serif;
+    line-height: 1.5;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
 /* 全域 border box  */
 *,::before,::after{
     box-sizing: border-box;
@@ -14,14 +14,109 @@ img{
 a{
     text-decoration: none;
 }
+/* RWD img css 可當作css reset 其中一個 */
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+/* utilities */
+.bg-primary {
+    background-color: #aa0601;
+  }
+
 /* 共用區 */
 .container{
-    width: 1296px;
+    /* 桌機 */
+    max-width: 1320px;
     margin: 0 auto;
-    /* padding: 12px; */
+    padding:0 12px;
+
+    /* 平板 */
+    @media(max-width: 768px){
+        max-width: 720px;
+        /* 696+24gutter */
+    }
+
+    /* 手機 */
+    @media (max-width:375px) {
+        max-width: 372px;
+        /* 348+24gutter */
+    }
 }
+
+/* 抵銷col多的左右 */
+.row{
+    margin-left: -12px;
+    margin-right: -12px;
+    display: flex;
+}
+
+.mx-12{
+    margin: 0 12px;
+}
+/* .col-1{
+    width: calc(100%/12);
+}
+.col-2{
+    width: calc(100%/6);
+} */
+/* 3 欄 */
+.col-3{
+    width: calc(100%/4);
+}
+/* 4 欄  */
+.col-4{
+    width: calc(100%/3);
+}
+/* .col-5{
+    width: calc(100%/12*5);
+} */
+/* 6 欄  */
+.col-6{
+    width: calc(100%/2);
+}
+/* .col-7{
+    width: calc(100%/12*7);
+}
+.col-8{
+    width: calc(100%/3*2);
+}
+.col-9{
+    width: calc(100%/12*9);
+}
+.col-10{
+    width: calc(100%/12*10);
+}
+.col-11{
+    width: calc(100%/12*11);
+} */
+.col-12{
+    width: 100%;
+}
+
+@media (max-width:768px) {
+    .col-md-10{
+        width: calc(100%/12*10);
+    }
+    .col-md-6{
+        width: calc(100%/2);
+    }
+    .col-md-12{
+        width: 100%;
+    }
+}
+@media (max-width:375px) {
+    .col-sm-12{
+        width: 100%;
+    }
+}
+
 .ma{
     margin: 0 auto;
+}
+.flex{
+    display: flex;
 }
 .row_jcsb{
     display: flex;
@@ -64,12 +159,16 @@ a{
     flex-direction: column;
     align-items: center;
 }
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 h1, h2, h3, h4, h5, h6,p, a, span{
     line-height: 1.5;
     font-family: 'Noto Sans TC', sans-serif;
 }
-h1, h2, h3, h4{
+h1, h2, h3, h4, .fz48{
     color: #AA0601;
 }
 .roboto{
@@ -78,16 +177,25 @@ h1, h2, h3, h4{
 h1{
     font-size: 64px;
     font-weight: 700;
+    @media (max-width:375px) {
+        font-size: 24px;
+    }
 }
 h2{
     font-size: 48px;
     font-weight: 700;
     text-align: center;
+    @media (max-width:375px) {
+        font-size: 24px;
+    }
 }
 h3{
     font-size: 36px;
     font-weight: 400;
     text-align: center;
+    @media (max-width:375px) {
+        font-size: 16px;
+    }
 }
 h4{
     font-size: 24px;
@@ -100,6 +208,11 @@ h5{
 p{
     font-size: 16px;
     font-weight: 400;
+}
+.fz48{
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
 }
 .text_center{
     text-align: center;
@@ -118,8 +231,36 @@ p{
     /* height: 80px; */
 }
 /* ///////////nav////////////// */
+.ptb-16{
+    padding: 16px 0;
+}
+.nav-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media (max-width:768px) {
+        flex-direction: column;
+        /* 移除左右 padding 再加入 max-width: 100%; 讓導覽列能變為滿版 */
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+        
+    }
+}
+.navbar-nav{
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width:768px) {
+        flex-wrap: wrap;
+    }
+}
 .logo{
     width: 80px;
+    @media (max-width:768px) {
+        margin:0 0 16px 16px;
+    }
 }
 .ptb-25{
     padding: 25px 0;
@@ -129,12 +270,42 @@ p{
 }
 .navbar{
     font-size: 20px;
+
+    height: 100%;
+    display: block;
+    padding: 8px 32px;
+    /* 不知用意 */
+
+    @media (max-width:768px) {
+        font-size: 16px;
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+.navbar:hover {
+    opacity: 0.7;
+  }
+  
+  .navbar:last-child .navbar {
+    padding-right: 0;
+  }
+.navbar-item{
+    height: 100%;
+    @media (max-width:768px) {
+        width: 50%;
+        /* margin-right: 0px; */
+        /* 不知用意 */
+        border: 1px solid #ffffff;
+    }
 }
 /* ///////////////header///////////////////////////// */
-.bg_pic1{
+.bg_pic_light{
     background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/home-header.png?raw=true);
     background-size: cover;
     max-height: 787px;
+    @media (max-width:375px) {
+        background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/home-header-sm.png?raw=true);
+    }
 }
 .ptb-296{
     padding: 296px 0;
@@ -172,6 +343,15 @@ p{
 }
 
 /* ////////////////section2///////////////////////// */
+.section_jcsb{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width:768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 .w-33{
     width: calc((100% - 48px)/3);
 }
@@ -179,11 +359,17 @@ p{
     padding-bottom: 48px;
 }
 /* ////////////////section3///////////////////////// */
-.bg_pic2{
+.bg_pic_red{
     background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/index-bg.png?raw=true);
     /* opacity: 1; */
     background-size: cover;
     max-height: 787px;
+    @media (max-width:768px) {
+        background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/index-bg-md.png?raw=true);
+    }
+    @media (max-width:375px) {
+        background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/week3-4/index-bg-sm.png?raw=true);
+    }
 }
 .bg_white{
     background-color: #fff;
@@ -209,11 +395,7 @@ p{
     color: #707070;
 }
 /* ////////////////section5///////////////////////// */
-.container_6{
-    width: calc((1296px / 2) - 12px);
-    margin: 0 auto;
-    /* padding: 12px; */
-}
+
 .block{
     display: block;
 }
@@ -228,33 +410,90 @@ p{
     height: 36px;
     /* vertical-align: middle; */
 }
-.button_2{
+.button_send{
     background-color: #AA0601;
     padding: 16px 0;
     font-size: 20px;
     display: block;
     margin-top: 48px;
-    min-width: 416px;
     text-align: center;
 }
 /* //////////////////footer///////////////  */
-.mr-48{
-    margin-right: 48px;
+.footer_wrap{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 48px;
+    flex-wrap: wrap;
+    @media (max-width:375px) {
+        align-items: top;
+        flex-direction: row-reverse;
+        padding-top: 24px;
+    }
+}
+.footer_jcsb{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    @media (max-width:375px) {
+        width: 25%;
+    }
+}
+
+.footer_nav{
+    @media (max-width:375px) {
+        display: none;
+    }
 }
 .icon_social{
     width: 48px;
-}
-.ml-32{
     margin-left: 32px;
+    @media (max-width:768px) {
+        width: 40px;
+        margin-left: 16px;
+    }
+    @media (max-width:375px) {
+        width: 24px;
+        margin-left: 8px;
+    }
 }
+.footer_wrap2{
+    display: flex;
+    justify-content: space-between;
+    @media (max-width:375px) {
+        flex-wrap: wrap;
+        flex-direction: colume;
+        align-items: start;
+    }
+}
+.terms{
+    margin-left: 48px;
+    @media (max-width:375px) {
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+        display: block;
+    }
+}
+
+.pr-48{
+    padding-right: 48px;
+}
+
 .pt-48{
     padding-top: 48px;
 }
-
-.icon_footer{
-    /* width: 48px; */
+.icon_phone{
+    padding: 6px;
+}
+.icon_mail{
+    padding: 8px 4px;
+}
+.icon_call{
     font-size: 48px;
-    padding: 4px;
+    @media (max-width:375px) {
+        font-size: 24px;
+    }
 }
 .mr-16{
     margin-right: 16px;
@@ -263,10 +502,16 @@ p{
 .ml-48{
     margin-left: 48px;
 }
-.m-32{
+.hr{
     margin: 32px 0;
     display: block;
+    @media (max-width:375px) {
+        margin: 24px 0 16px 0;
+    }
 }
 .pb-32{
     padding-bottom: 32px;
+}
+.mt-24{
+    padding-top: 24px;
 }
